@@ -1,0 +1,41 @@
+@import '../Variables.scss';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $main-dark;
+  margin: 32px;
+  padding: 32px;
+
+  header {
+    text-align: center;
+    background-color: $main-dark;
+    -webkit-app-region: drag;
+    padding: 22px 0;
+  }
+
+  main {
+    display: flex;
+    flex-grow: 1;
+
+    .sidebar {
+      min-width: 350px;
+      background-color: $main-dark;
+      //   padding: 12px 24px;
+    }
+
+    .content {
+      width: 100%;
+      background-color: $main-mid-dark;
+      border-top-left-radius: 12px;
+    }
+  }
+
+  footer {
+    padding: 8px 0;
+    background-color: $main-dark;
+    text-align: center;
+  }
+}
