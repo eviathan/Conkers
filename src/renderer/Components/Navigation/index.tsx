@@ -38,7 +38,7 @@ export function NavigationGroup({ type, children }: INavigationGroupProps) {
         <h1>{type}</h1>
         {isCollapsed ? <HiChevronUp size={32} /> : <HiChevronDown size={32} />}
       </div>
-      {children}
+      {isCollapsed ? <>{children}</> : null}
     </div>
   );
 }
