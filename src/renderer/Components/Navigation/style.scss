@@ -1,12 +1,13 @@
 @import '../../Variables.scss';
 
 .nav-group {
-  padding: 16px 20px 0px;
+  padding: 16px 0px 0px;
 
   .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 12px 0 22px;
 
     h1 {
       font-size: 14px;
@@ -23,7 +24,7 @@
   flex-grow: 1;
   margin: 0;
   width: 100%;
-  padding: 6px 12px;
+  padding: 10px 32px;
 
   &:hover {
     background: linear-gradient(90deg, $main-mid-dark 0%, $main-dark 100%);
