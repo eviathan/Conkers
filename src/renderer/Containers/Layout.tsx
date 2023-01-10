@@ -30,7 +30,7 @@ export default function Layout() {
         <Route path="/" element={<Main />} />
         <Route path="/settings" element={<h1>Settings: Not implemented</h1>} />
       </Routes>
-      {/* <footer>Footer</footer> */}
+      <footer>Footer</footer>
     </div>
   );
 }
