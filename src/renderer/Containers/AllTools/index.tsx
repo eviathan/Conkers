@@ -1,21 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Tool, tools } from '../../../state';
+import { tools } from '../../../state';
+import AllToolsCard from './AllToolsCard';
 import './style.scss';
-
-interface IAllToolsCardProps {
-	tool: Tool;
-}
-
-function AllToolsCard({ tool }: IAllToolsCardProps) {
-	return (
-		<Link className="card" to={tool.path}>
-			<span className="type">{tool.type}</span>
-			<tool.icon className="icon" size={42} />
-			<h4>{tool.title}</h4>
-			<p>{tool.description}</p>
-		</Link>
-	);
-}
 
 export default function AllTools() {
 	const toolSansAllPage = tools.filter((tool) => tool.path !== '/');

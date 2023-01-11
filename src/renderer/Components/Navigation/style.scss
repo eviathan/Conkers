@@ -1,5 +1,17 @@
 @import '../../Variables.scss';
 
+.navigation {
+	position: relative;
+	overflow: auto;
+	height: 100%;
+
+	.items {
+		position: absolute;
+		padding-bottom: 100px;
+		width: 100%;
+	}
+}
+
 .nav-group {
 	&.with-children {
 		padding: 16px 0px 0px;
@@ -9,7 +21,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		padding: 0 12px 0 22px;
+		padding: 0 22px 0 22px;
 
 		h1 {
 			font-size: 14px;

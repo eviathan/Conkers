@@ -7,6 +7,7 @@ $margin: 12px;
 	flex-direction: column;
 	padding: 42px 42px 0;
 	overflow-y: scroll;
+	position: absolute;
 
 	.tools {
 		display: flex;
@@ -23,7 +24,7 @@ $margin: 12px;
 			background-color: $main-light-dark;
 			width: calc(25% - ($margin * 3));
 			// max-width: calc(33.333333333% - ($margin * 2));
-			height: 280px;
+			height: 275px;
 			margin: 0;
 			margin-left: $margin;
 			margin-bottom: $margin;

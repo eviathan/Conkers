@@ -2,15 +2,18 @@ import { ReactElement } from 'react';
 import { IconType } from 'react-icons';
 import { TbCircleDashed, TbSortAscendingNumbers } from 'react-icons/tb';
 import { TfiHtml5 } from 'react-icons/tfi';
-import { FaLink, FaMarkdown } from 'react-icons/fa';
+import { FaLink, FaMarkdown, FaBriefcase } from 'react-icons/fa';
 import { MdOutlineImageAspectRatio, MdSwapHoriz } from 'react-icons/md';
 import { RiFolderZipLine } from 'react-icons/ri';
-import { VscCode, VscCalendar } from 'react-icons/vsc';
+import { HiIdentification } from 'react-icons/hi';
+import { VscCode, VscCalendar, VscRegex } from 'react-icons/vsc';
 import { BiCodeCurly } from 'react-icons/bi';
 import { ImDatabase, ImHome3 } from 'react-icons/im';
 import { AiOutlineFieldNumber } from 'react-icons/ai';
+import { BsPatchCheckFill, BsTextareaT, BsChatTextFill } from 'react-icons/bs';
+import { IoFingerPrint } from 'react-icons/io5';
+import { GiCuckooClock } from 'react-icons/gi';
 import JWTEncoder from 'renderer/Containers/JWTEncoder';
-import AllTools from 'renderer/Containers/AllTools';
 
 // NOTE: This is all very naive, maybe look into database storage on the client side
 
@@ -20,7 +23,7 @@ export type Tool = {
 	description?: string;
 	icon: IconType;
 	type?: ToolType;
-	element: ReactElement;
+	element?: ReactElement;
 };
 
 export type ToolGroup = {
@@ -28,13 +31,6 @@ export type ToolGroup = {
 };
 
 export const tools: Array<Tool> = [
-	// All Tools
-	{
-		path: '/',
-		title: 'All Tools',
-		icon: ImHome3,
-		element: <AllTools />,
-	},
 	// Converters
 	{
 		path: 'json-yaml-converter',
@@ -57,6 +53,14 @@ export const tools: Array<Tool> = [
 		title: 'Date',
 		description: 'Converts date from one format to another',
 		icon: VscCalendar,
+		type: 'Converters',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'cron-converter',
+		title: 'Cron parser',
+		description: 'Parse Cron expression to get scheduled dates',
+		icon: GiCuckooClock,
 		type: 'Converters',
 		element: <h1>TO BE IMPLEMENTED</h1>,
 	},
@@ -98,7 +102,7 @@ export const tools: Array<Tool> = [
 	{
 		path: 'gzip-encoder',
 		title: 'GZip',
-		description: '',
+		description: 'Compress or decompress strings',
 		icon: RiFolderZipLine,
 		type: 'Encoders / Decoders',
 		element: <h1>TO BE IMPLEMENTED</h1>,
@@ -137,44 +141,76 @@ export const tools: Array<Tool> = [
 		element: <JWTEncoder />,
 	},
 	// Generators
+	{
+		path: 'hash-generators',
+		title: 'Hash',
+		description: 'Calculate MD5, SHA1, SHA256 and SHA512 hash from text data',
+		icon: IoFingerPrint,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'uuid-generators',
+		title: 'UUID',
+		description: 'Generate UUIDs version 1 and 4',
+		icon: HiIdentification,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'lorem-ipsum-generators',
+		title: 'Lorem Ipsum',
+		description: 'Generate Lorem Ipsum placeholder text',
+		icon: BsChatTextFill,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'checksum-generators',
+		title: 'Checksum',
+		description: 'Generate a hash with Checksum based on a file',
+		icon: FaBriefcase,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
 	// Text
 	{
-		path: 'markdown-preview-text',
-		title: 'Markdown Preview',
-		description: 'Edit and preview markdown data',
+		path: 'inspector-and-case-converter-text',
+		title: 'Inspector & Case Converter',
+		description: 'Escapes or unescapes a string',
+		icon: FaBriefcase,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'regex-text',
+		title: 'RegEx',
+		description: 'Validate and test regular expressions',
+		icon: VscRegex,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'text-diff-text',
+		title: 'Text Diff',
+		description: 'Compares two texts',
+		icon: BsTextareaT,
+		type: 'Text',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'hyphenation-text',
+		title: 'Hyphenation',
+		description: '',
 		icon: VscCode,
 		type: 'Text',
 		element: <JWTEncoder />,
 	},
 	{
-		path: 'markdown-preview-text',
-		title: 'Markdown Preview',
-		description: 'Edit and preview markdown data',
-		icon: VscCode,
-		type: 'Text',
-		element: <JWTEncoder />,
-	},
-	{
-		path: 'markdown-preview-text',
-		title: 'Markdown Preview',
-		description: 'Edit and preview markdown data',
-		icon: VscCode,
-		type: 'Text',
-		element: <JWTEncoder />,
-	},
-	{
-		path: 'markdown-preview-text',
-		title: 'Markdown Preview',
-		description: 'Edit and preview markdown data',
-		icon: VscCode,
-		type: 'Text',
-		element: <JWTEncoder />,
-	},
-	{
-		path: 'markdown-preview-text',
-		title: 'Markdown Preview',
-		description: 'Edit and preview markdown data',
-		icon: VscCode,
+		path: 'xml-validator-text',
+		title: 'XML Validator',
+		description: 'Validate XML data via an XSD scheme',
+		icon: BsPatchCheckFill,
 		type: 'Text',
 		element: <JWTEncoder />,
 	},

@@ -27,7 +27,8 @@
 		.content {
 			width: 100%;
 			background-color: $main-mid-dark;
-			// border-top-left-radius: 12px;
+			overflow: auto;
+			position: relative;
 		}
 	}
 
@@ -35,5 +36,7 @@
 		padding: 8px 0;
 		background-color: $main-dark;
 		text-align: center;
+		z-index: 1000;
+		user-select: none;
 	}
 }
