@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TbArrowsLeftRight } from 'react-icons/tb';
 import Accordion from 'renderer/Components/Accordion';
-import Drawer from 'renderer/Components/Accordion/Drawer';
+import ConfigurationItem from 'renderer/Components/ConfigurationItem';
 import Toggle from 'renderer/Components/Toggle';
 import './style.scss';
 
@@ -34,9 +34,21 @@ export default ({ onUpdate }: IProps) => {
 				}}
 			/>
 
+			<ConfigurationItem
+				icon={TbArrowsLeftRight}
+				title="Settings"
+				subTitle="Select token parameters"
+				label={(state) => (state ? 'Encode' : 'Decode')}
+				onClick={(state) => {
+					didUpdate({ ...settings, isEncoding: state });
+				}}
+			/>
+
 			{settings.isEncoding ? (
 				<Accordion>
-					<Drawer />
+					<h1>Child 1</h1>
+					<h1>Child 2</h1>
+					<h1>Child 3</h1>
 				</Accordion>
 			) : null}
 		</>

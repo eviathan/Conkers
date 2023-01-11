@@ -8,6 +8,7 @@ module.exports = {
 		'react/react-in-jsx-scope': 'off',
 		'prettier/prettier': 'off',
 		'no-tabs': ['error', { allowIndentationTabs: true }],
+		'react/require-default-props': 'off',
 	},
 	parserOptions: {
 		ecmaVersion: 2020,
