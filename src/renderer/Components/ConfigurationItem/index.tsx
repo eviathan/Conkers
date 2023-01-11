@@ -6,7 +6,7 @@ interface IProps {
 	icon: IconType;
 	title: string;
 	subTitle?: string;
-	label: (state: boolean) => string;
+	label?: (state: boolean) => string;
 	children?: React.ReactNode;
 	onClick?: (state: boolean) => void;
 }
@@ -30,7 +30,7 @@ export default function ConfigurationItem(props: IProps) {
 				</div>
 			</div>
 			<div className="switch">
-				<span>{label(state)}</span>
+				<span>{label ? label(state) : null}</span>
 				{children}
 			</div>
 		</div>

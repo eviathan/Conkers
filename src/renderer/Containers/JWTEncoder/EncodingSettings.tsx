@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IoBulbSharp, IoFingerPrint } from 'react-icons/io5';
 import { TbArrowsLeftRight } from 'react-icons/tb';
 import Accordion from 'renderer/Components/Accordion';
 import ConfigurationItem from 'renderer/Components/ConfigurationItem';
@@ -7,6 +8,7 @@ import './style.scss';
 
 interface EncodingSettings {
 	isEncoding: boolean;
+	tokenHasDefaultTime: boolean;
 }
 
 interface IProps {
@@ -16,6 +18,7 @@ interface IProps {
 export default ({ onUpdate }: IProps) => {
 	const [settings, setSettings] = useState({
 		isEncoding: false,
+		tokenHasDefaultTime: false,
 	} as EncodingSettings);
 
 	const didUpdate = (s: EncodingSettings) => {
@@ -34,21 +37,44 @@ export default ({ onUpdate }: IProps) => {
 				}}
 			/>
 
-			<ConfigurationItem
-				icon={TbArrowsLeftRight}
-				title="Settings"
-				subTitle="Select token parameters"
-				label={(state) => (state ? 'Encode' : 'Decode')}
-				onClick={(state) => {
-					didUpdate({ ...settings, isEncoding: state });
-				}}
-			/>
-
 			{settings.isEncoding ? (
 				<Accordion>
-					<h1>Child 1</h1>
-					<h1>Child 2</h1>
-					<h1>Child 3</h1>
+					<ConfigurationItem
+						icon={IoFingerPrint}
+						title="Token hashing algorithm"
+					/>
+					<ConfigurationItem
+						icon={IoBulbSharp}
+						title="Token has issuer"
+						label={(state) => (state ? 'On' : 'Off')}
+						onClick={(state) => {
+							didUpdate({ ...settings, isEncoding: state });
+						}}
+					/>
+					<ConfigurationItem
+						icon={IoBulbSharp}
+						title="Token has audience"
+						label={(state) => (state ? 'On' : 'Off')}
+						onClick={(state) => {
+							didUpdate({ ...settings, isEncoding: state });
+						}}
+					/>
+					<ConfigurationItem
+						icon={IoBulbSharp}
+						title="Token has expirations"
+						label={(state) => (state ? 'On' : 'Off')}
+						onClick={(state) => {
+							didUpdate({ ...settings, isEncoding: state });
+						}}
+					/>
+					<Toggle
+						icon={TbArrowsLeftRight}
+						title="Token has default time"
+						label={(state) => (state ? 'On' : 'Off')}
+						onClick={(state) => {
+							didUpdate({ ...settings, tokenHasDefaultTime: state });
+						}}
+					/>
 				</Accordion>
 			) : null}
 		</>
