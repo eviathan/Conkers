@@ -1,28 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import Navigation from 'renderer/Components/Navigation';
-import SearchBar from 'renderer/Components/SearchBar';
-import { tools } from '../../state';
-import AllTools from './AllTools';
+import Main from './Main';
 import './Layout.scss';
-
-function Main() {
-	return (
-		<main>
-			<div className="sidebar">
-				<SearchBar />
-				<Navigation />
-			</div>
-			<div className="content">
-				<Routes>
-					<Route path="/" element={<AllTools />} />
-					{tools.map((tool) => (
-						<Route key={tool.path} path={tool.path} element={tool.element} />
-					))}
-				</Routes>
-			</div>
-		</main>
-	);
-}
+import Settings from './Settings';
 
 export default function Layout() {
 	return (
@@ -30,7 +9,7 @@ export default function Layout() {
 			<header>Conkers</header>
 			<Routes>
 				<Route path="/*" element={<Main />} />
-				<Route path="/settings" element={<h1>Settings: Not implemented</h1>} />
+				<Route path="/settings" element={<Settings />} />
 			</Routes>
 			<footer>Footer</footer>
 		</div>
