@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import { Tool, ToolGroup, tools } from 'state';
+import { Tool, tools } from 'state';
 import { ImHome3 } from 'react-icons/im';
 import AllTools from 'renderer/Containers/AllTools';
 import { groupBy } from 'Utilities/ArrayUtilities';
@@ -8,32 +8,25 @@ import NavigationLink from './NavigationLink';
 import NavigationGroup from './NavigationGroup';
 
 export default function Navigation() {
-  const allTools: Tool = {
-    path: 'all-tools',
-    title: 'All Tools',
-    icon: ImHome3,
-    element: <AllTools />,
-  };
+	const allTools: Tool = {
+		path: 'all-tools',
+		title: 'All Tools',
+		icon: ImHome3,
+		element: <AllTools />,
+	};
 
-  // Export the below programattically
-  //groupBy(tools, (tool) => tool.type))
-  const toolGroups: ToolGroup = {
-    'Encoders/ Decoders': [
-      { title: 'JWT', path: '', icon: ImHome3, element: <h1>Wooter</h1> },
-    ] as Array<Tool>,
-    Converters: [] as Array<Tool>,
-  };
+	const toolGroups = groupBy(tools, (tool) => tool.type ?? '');
 
-  return (
-    <nav>
-      <NavigationLink tool={allTools} />
-      {Object.entries(toolGroups).map(([type, toolGroup]) => (
-        <NavigationGroup type={type}>
-          {toolGroup.map((tool) => (
-            <NavigationLink tool={tool} key={tool.path} />
-          ))}
-        </NavigationGroup>
-      ))}
-    </nav>
-  );
+	return (
+		<nav>
+			<NavigationLink tool={allTools} />
+			{Object.entries(toolGroups).map(([type, toolGroup]) => (
+				<NavigationGroup type={type} key={type}>
+					{toolGroup.map((tool) => (
+						<NavigationLink tool={tool} key={tool.path} />
+					))}
+				</NavigationGroup>
+			))}
+		</nav>
+	);
 }

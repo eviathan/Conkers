@@ -4,26 +4,26 @@ import './style.scss';
 import { useState } from 'react';
 
 interface INavigationGroupProps {
-  type: string;
-  children?: React.ReactNode;
+	type: string;
+	children?: React.ReactNode;
 }
 
 export default function NavigationGroup({
-  type,
-  children,
+	type,
+	children,
 }: INavigationGroupProps) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  return (
-    <div className="nav-group">
-      <div
-        className="header"
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        aria-hidden
-      >
-        <h1>{type}</h1>
-        {isCollapsed ? <HiChevronUp size={24} /> : <HiChevronDown size={24} />}
-      </div>
-      {isCollapsed ? <>{children}</> : null}
-    </div>
-  );
+	const [isCollapsed, setIsCollapsed] = useState(false);
+	return (
+		<div className="nav-group">
+			<div
+				className="header"
+				onClick={() => setIsCollapsed(!isCollapsed)}
+				aria-hidden
+			>
+				<h1>{type}</h1>
+				{isCollapsed ? <HiChevronDown size={24} /> : <HiChevronUp size={24} />}
+			</div>
+			{isCollapsed ? null : <>{children}</>}
+		</div>
+	);
 }

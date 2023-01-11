@@ -1,36 +1,129 @@
 import { ReactElement } from 'react';
 import { IconType } from 'react-icons';
-import { TbCircleDashed } from 'react-icons/tb';
+import { TbCircleDashed, TbSortAscendingNumbers } from 'react-icons/tb';
+import { TfiHtml5 } from 'react-icons/tfi';
+import { FaLink } from 'react-icons/fa';
+import { MdOutlineImageAspectRatio, MdSwapHoriz } from 'react-icons/md';
+import { RiFolderZipLine } from 'react-icons/ri';
+import { VscCode } from 'react-icons/vsc';
+import { BiCodeCurly } from 'react-icons/bi';
+import { ImDatabase } from 'react-icons/im';
+import { AiOutlineFieldNumber } from 'react-icons/ai';
 import JWTEncoder from 'renderer/Containers/JWTEncoder';
 
+// NOTE: This is all very naive, maybe look into database storage on the client side
+
 export type Tool = {
-  path: string;
-  title: string;
-  description?: string;
-  icon: IconType;
-  type?: ToolType;
-  element: ReactElement;
+	path: string;
+	title: string;
+	description?: string;
+	icon: IconType;
+	type?: ToolType;
+	element: ReactElement;
 };
 
 export type ToolGroup = {
-  [key: string]: Array<Tool>;
+	[key: string]: Array<Tool>;
 };
 
 export const tools: Array<Tool> = [
-  {
-    path: 'jwt-encoder',
-    title: 'JWT Encoder/ Decoder',
-    description: 'Decode a JWT header payload and signature',
-    icon: TbCircleDashed,
-    type: 'Encoders/ Decoders',
-    element: <JWTEncoder />,
-  },
+	// Converters
+	{
+		path: 'json-yaml-converter',
+		title: 'JSON / Yaml',
+		description: '',
+		icon: MdSwapHoriz,
+		type: 'Converters',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'number-base-converter',
+		title: 'Number Base',
+		description: '',
+		icon: AiOutlineFieldNumber,
+		type: 'Converters',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	// Encoders / Decoders
+	{
+		path: 'html-encoder',
+		title: 'HTML',
+		description: '',
+		icon: TfiHtml5,
+		type: 'Encoders / Decoders',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'url-encoder',
+		title: 'URL',
+		description: '',
+		icon: FaLink,
+		type: 'Encoders / Decoders',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'base64-text-encoder',
+		title: 'Base64 Text',
+		description: '',
+		icon: TbSortAscendingNumbers,
+		type: 'Encoders / Decoders',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'base64-image-encoder',
+		title: 'Base 64 Image',
+		description: '',
+		icon: MdOutlineImageAspectRatio,
+		type: 'Encoders / Decoders',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'gzip-encoder',
+		title: 'GZip',
+		description: '',
+		icon: RiFolderZipLine,
+		type: 'Encoders / Decoders',
+		element: <h1>TO BE IMPLEMENTED</h1>,
+	},
+	{
+		path: 'jwt-encoder',
+		title: 'JWT',
+		description: 'Decode a JWT header payload and signature',
+		icon: TbCircleDashed,
+		type: 'Encoders / Decoders',
+		element: <JWTEncoder />,
+	},
+	// Formatters
+	{
+		path: 'json-formatter',
+		title: 'JSON',
+		description: '',
+		icon: BiCodeCurly,
+		type: 'Formatters',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'sql-formatter',
+		title: 'SQL',
+		description: '',
+		icon: ImDatabase,
+		type: 'Formatters',
+		element: <JWTEncoder />,
+	},
+	{
+		path: 'xml-formatter',
+		title: 'XML',
+		description: '',
+		icon: VscCode,
+		type: 'Formatters',
+		element: <JWTEncoder />,
+	},
 ];
 
 export type ToolType =
-  | 'Converters'
-  | 'Encoders/ Decoders'
-  | 'Formatters'
-  | 'Generators'
-  | 'Text'
-  | 'Graphic';
+	| 'Converters'
+	| 'Encoders / Decoders'
+	| 'Formatters'
+	| 'Generators'
+	| 'Text'
+	| 'Graphic';

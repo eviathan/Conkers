@@ -1,45 +1,45 @@
 @import '../../Variables.scss';
 
 .nav-group {
-  padding: 16px 0px 0px;
+	padding: 16px 0px 0px;
 
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 12px 0 22px;
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0 12px 0 22px;
 
-    h1 {
-      font-size: 14px;
-      margin: 0;
-      text-align: center;
-      align-self: center;
-      user-select: none;
-    }
-  }
+		h1 {
+			font-size: 14px;
+			margin: 0;
+			text-align: center;
+			align-self: center;
+			user-select: none;
+		}
+	}
 }
 
 .navigation-link {
-  display: flex;
-  flex-grow: 1;
-  margin: 0;
-  width: 100%;
-  padding: 10px 32px;
+	display: flex;
+	flex-grow: 1;
+	margin: 0;
+	width: 100%;
+	padding: 10px 32px;
 
-  &:hover {
-    background: linear-gradient(90deg, $main-mid-dark 0%, $main-dark 100%);
+	&:hover {
+		background: linear-gradient(90deg, $main-mid-dark 0%, $main-dark 100%);
 
-    span {
-      opacity: 1;
-    }
-  }
+		span {
+			opacity: 1;
+		}
+	}
 
-  span {
-    color: $text;
-    height: 100%;
-    opacity: 0.9;
-    padding-left: 12px;
-    text-align: center;
-    align-self: center;
-  }
+	span {
+		color: $text;
+		height: 100%;
+		opacity: 0.9;
+		padding-left: 12px;
+		text-align: center;
+		align-self: center;
+	}
 }
