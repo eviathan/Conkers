@@ -1,4 +1,30 @@
+@import '../../Variables.scss';
+
 .search-bar {
+	display: flex;
+	flex-grow: 1;
+	padding: 24px 12px 24px 22px;
+
 	.wrapper {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		border: 1px rgba(255, 255, 255, 0.434) solid;
+		padding: 6px;
+		border-radius: 2px;
+
+		input {
+			flex-grow: 1;
+			background: none;
+			border: none;
+			color: $text;
+
+			&:focus,
+			&:focus {
+				outline: none;
+			}
+		}
 	}
 }
