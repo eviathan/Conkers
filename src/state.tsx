@@ -38,7 +38,7 @@ export const tools: Array<Tool> = [
 		description: 'Convert Json data to Yaml and vice versa',
 		icon: MdSwapHoriz,
 		type: 'Converters',
-		element: <h1>TO BE IMPLEMENTED</h1>,
+		element: <h1>TO BE IMPLEMENTED: JSON / Yaml</h1>,
 	},
 	{
 		path: 'number-base-converter',
@@ -46,7 +46,7 @@ export const tools: Array<Tool> = [
 		description: 'Convert numbers from one base to another',
 		icon: AiOutlineFieldNumber,
 		type: 'Converters',
-		element: <h1>TO BE IMPLEMENTED</h1>,
+		element: <h1>TO BE IMPLEMENTED: Number Base</h1>,
 	},
 	{
 		path: 'date-converter',
@@ -54,15 +54,15 @@ export const tools: Array<Tool> = [
 		description: 'Converts date from one format to another',
 		icon: VscCalendar,
 		type: 'Converters',
-		element: <h1>TO BE IMPLEMENTED</h1>,
+		element: <h1>TO BE IMPLEMENTED: Date</h1>,
 	},
 	{
 		path: 'cron-converter',
-		title: 'Cron parser',
+		title: 'Cron Parser',
 		description: 'Parse Cron expression to get scheduled dates',
 		icon: GiCuckooClock,
 		type: 'Converters',
-		element: <h1>TO BE IMPLEMENTED</h1>,
+		element: <h1>TO BE IMPLEMENTED: Cron Parser</h1>,
 	},
 	// Encoders / Decoders
 	{
@@ -72,7 +72,7 @@ export const tools: Array<Tool> = [
 			'Encode or decode all the applicable characters to their corresponding HTML entities',
 		icon: TfiHtml5,
 		type: 'Encoders / Decoders',
-		element: <h1>TO BE IMPLEMENTED</h1>,
+		element: <h1>TO BE IMPLEMENTED: HTML</h1>,
 	},
 	{
 		path: 'url-encoder',

@@ -15,17 +15,19 @@ export default function Navigation() {
 	};
 
 	return (
-		<div className="navigation">
-			<div className="items">
-				<NavigationLink tool={allTools} />
-				{Object.entries(toolGroups).map(([type, toolGroup]) => (
-					<NavigationGroup type={type} key={type}>
-						{toolGroup.map((tool) => (
-							<NavigationLink tool={tool} key={tool.path} />
-						))}
-					</NavigationGroup>
-				))}
+		<nav>
+			<NavigationLink tool={allTools} />
+			<div className="navigation">
+				<div className="items">
+					{Object.entries(toolGroups).map(([type, toolGroup]) => (
+						<NavigationGroup type={type} key={type}>
+							{toolGroup.map((tool) => (
+								<NavigationLink tool={tool} key={tool.path} />
+							))}
+						</NavigationGroup>
+					))}
+				</div>
 			</div>
-		</div>
+		</nav>
 	);
 }
