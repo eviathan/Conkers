@@ -17,7 +17,7 @@ export default function Toggle(props: IProps) {
 
 	const handleClick = () => {
 		setState(!state);
-		onClick(state);
+		onClick(!state); // NOTE: Why isnt the state updating here?
 	};
 
 	return (

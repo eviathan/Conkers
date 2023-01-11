@@ -1,8 +1,9 @@
+/* eslint-disable react/require-default-props */
 import './style.scss';
 
 interface IProps {
 	title: string;
-	children?: any;
+	children?: React.ReactNode;
 }
 
 export default function HeaderedSection({ title, children }: IProps) {

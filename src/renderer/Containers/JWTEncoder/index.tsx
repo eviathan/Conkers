@@ -5,7 +5,9 @@ import './style.scss';
 import TokenValidationSettings from './TokenValidationSettings';
 
 export default function JWTEncoder() {
-	const [encodingSettings, setEncodingSettings] = useState({});
+	const [encodingSettings, setEncodingSettings] = useState({
+		isEncoding: false,
+	});
 	const [tokenValidationSettings, setTokenValidationSettings] = useState({});
 
 	return (
@@ -14,9 +16,11 @@ export default function JWTEncoder() {
 				<EncodingSettings
 					onUpdate={(settings) => setEncodingSettings(settings)}
 				/>
-				<TokenValidationSettings
-					onUpdate={(settings) => setTokenValidationSettings(settings)}
-				/>
+				{encodingSettings.isEncoding ? null : (
+					<TokenValidationSettings
+						onUpdate={(settings) => setTokenValidationSettings(settings)}
+					/>
+				)}
 			</HeaderedSection>
 			<HeaderedSection title="Token">
 				<h5>TODO: Token validator config</h5>
