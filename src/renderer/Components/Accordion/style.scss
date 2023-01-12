@@ -1,0 +1,9 @@
+@import '../../Variables.scss';
+
+.accordion {
+	.drawer {
+		padding: 6px 6px 1px 6px;
+		background-color: $detailing;
+		border-radius: 0 0 4px 4px;
+	}
+}

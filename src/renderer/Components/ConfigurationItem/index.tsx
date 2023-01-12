@@ -7,21 +7,27 @@ interface IProps {
 	title: string;
 	subTitle?: string;
 	label?: (state: boolean) => string;
+	noMargin?: boolean;
 	children?: React.ReactNode;
 	onClick?: (state: boolean) => void;
 }
 
 export default function ConfigurationItem(props: IProps) {
-	const { icon, title, subTitle, label, children, onClick } = props;
+	const { icon, title, subTitle, label, noMargin, children, onClick } = props;
 	const [state, setState] = useState(false);
 
 	const handleClick = () => {
-		setState(!state);
-		if (onClick) onClick(!state); // NOTE: Why isnt the state updating here?
+		const newState = !state;
+		setState(newState);
+		if (onClick) onClick(newState);
 	};
 
 	return (
-		<div className="toggle" onClick={handleClick} aria-hidden>
+		<div
+			className={`configuration-item ${noMargin ? 'no-margin' : ''}`}
+			onClick={handleClick}
+			aria-hidden
+		>
 			<div className="header">
 				<props.icon size={20} />
 				<div className="title">

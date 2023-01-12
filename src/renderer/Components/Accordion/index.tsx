@@ -1,26 +1,37 @@
 /* eslint-disable react/require-default-props */
-
+import { useState } from 'react';
 import { GoSettings } from 'react-icons/go';
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
+import Button from '../Button';
 import ConfigurationItem from '../ConfigurationItem';
+
+import './style.scss';
 
 interface IProps {
 	children?: React.ReactNode;
 }
 
 export default function Accordion({ children }: IProps) {
+	const [isExpanded, setIsExpanded] = useState(false);
+
 	return (
 		<div className="accordion">
 			<ConfigurationItem
 				icon={GoSettings}
 				title="Settings"
 				subTitle="Select token parameters"
-				// onClick={(state) => {
-				// 	didUpdate({ ...settings, isEncoding: state });
-				// }}
+				onClick={(state) => setIsExpanded(state)}
+				noMargin
 			>
-				<h1>hmm</h1>
+				<Button>
+					{isExpanded ? (
+						<HiChevronDown size={16} color="white" />
+					) : (
+						<HiChevronUp size={16} color="white" />
+					)}
+				</Button>
 			</ConfigurationItem>
-			{children}
+			{isExpanded ? <div className="drawer">{children}</div> : null}
 		</div>
 	);
 }
