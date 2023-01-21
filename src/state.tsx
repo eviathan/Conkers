@@ -14,6 +14,7 @@ import { BsPatchCheckFill, BsTextareaT, BsChatTextFill } from 'react-icons/bs';
 import { IoFingerPrint } from 'react-icons/io5';
 import { GiCuckooClock } from 'react-icons/gi';
 import JWTEncoder from 'renderer/Containers/JWTEncoder';
+import JSONYamlConverter from 'renderer/Containers/JSONYamlConverter';
 
 // NOTE: This is all very naive, maybe look into database storage on the client side
 
@@ -38,7 +39,7 @@ export const tools: Array<Tool> = [
 		description: 'Convert Json data to Yaml and vice versa',
 		icon: MdSwapHoriz,
 		type: 'Converters',
-		element: <h1>TO BE IMPLEMENTED: JSON / Yaml</h1>,
+		element: <JSONYamlConverter />,
 	},
 	{
 		path: 'number-base-converter',
