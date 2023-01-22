@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { IconType } from 'react-icons';
 import './style.scss';
 
@@ -8,22 +7,16 @@ export interface IProps {
 	subTitle?: string;
 	noMargin?: boolean;
 	children?: React.ReactNode;
-	// onClick?: (state: boolean) => void;
+	onClick?: () => void;
 }
 
 export default function ConfigurationItem(props: IProps) {
-	const { icon, title, subTitle, noMargin, children } = props;
-
-	// const handleClick = () => {
-	// 	const newState = !state;
-	// 	setState(newState);
-	// 	if (onClick) onClick(newState);
-	// };
+	const { icon, title, subTitle, noMargin, onClick, children } = props;
 
 	return (
 		<div
 			className={`configuration-item ${noMargin ? 'no-margin' : ''}`}
-			// onClick={handleClick}
+			onClick={() => (onClick ? onClick() : null)}
 			aria-hidden
 		>
 			<div className="header">

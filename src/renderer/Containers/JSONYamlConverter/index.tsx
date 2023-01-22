@@ -9,27 +9,68 @@ export default function JWTEncoder() {
 	const api = useApi();
 	const [json, setJSON] = useState('');
 	const [yaml, setYaml] = useState('');
+	const [settings, setSettings] = useState({} as ISettings);
 
-	api.jwtEncoderApi.encode('');
-	api.jwtEncoderApi.decode('');
+	const didSettingsUpdate = (value: ISettings) => {
+		setSettings(value);
+	};
 
-	const didSettingsUpdate = (settings: ISettings) => {
-		console.log('Settings: ', settings);
+	const didInputUpdate = (text: string) => {
+		const output = api.jsonYamlConverterApi.convert(
+			text,
+			settings.conversion,
+			settings.indent
+		);
+
+		switch (settings.conversion) {
+			default:
+			case 'JSONToYaml':
+				setJSON(text);
+				setYaml(output);
+				break;
+			case 'YamlToJSON':
+				setYaml(text);
+				setJSON(output);
+				break;
+		}
+	};
+
+	const getInput = (): string => {
+		switch (settings.conversion) {
+			default:
+			case 'JSONToYaml':
+				return json;
+			case 'YamlToJSON':
+				return yaml;
+		}
+	};
+
+	const getOutput = (): string => {
+		switch (settings.conversion) {
+			default:
+			case 'JSONToYaml':
+				return yaml;
+			case 'YamlToJSON':
+				return json;
+		}
 	};
 
 	return (
 		<div className="json-yaml-converter">
 			<HeaderedSection title="Configuration">
 				<JSONYamlSettings
-					onUpdate={(settings: ISettings) => didSettingsUpdate(settings)}
+					onUpdate={(value: ISettings) => didSettingsUpdate(value)}
 				/>
 			</HeaderedSection>
 			<div className="form">
 				<HeaderedSection title="Input">
-					<TextArea />
+					<TextArea
+						text={getInput()}
+						onChange={(text: string) => didInputUpdate(text)}
+					/>
 				</HeaderedSection>
 				<HeaderedSection title="Output">
-					<TextArea />
+					<TextArea text={getOutput()} disabled />
 				</HeaderedSection>
 			</div>
 		</div>
