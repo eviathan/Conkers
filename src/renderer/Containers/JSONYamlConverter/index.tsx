@@ -61,9 +61,9 @@ export default function JWTEncoder() {
 		switch (settings.conversion) {
 			default:
 			case 'JSONToYaml':
-				return 'JSON';
+				return 'json';
 			case 'YamlToJSON':
-				return 'Yaml';
+				return 'yaml';
 		}
 	};
 
@@ -71,9 +71,9 @@ export default function JWTEncoder() {
 		switch (settings.conversion) {
 			default:
 			case 'JSONToYaml':
-				return 'Yaml';
+				return 'yaml';
 			case 'YamlToJSON':
-				return 'JSON';
+				return 'json';
 		}
 	};
 
