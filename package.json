@@ -110,6 +110,7 @@
 		}
 	},
 	"dependencies": {
+		"@monaco-editor/react": "^4.4.6",
 		"@types/prismjs": "^1.26.0",
 		"@types/react-syntax-highlighter": "^15.5.6",
 		"antd": "^5.1.4",
@@ -117,6 +118,7 @@
 		"electron-log": "^4.4.8",
 		"electron-updater": "^5.2.3",
 		"fuse.js": "^6.6.2",
+		"monaco-editor": "^0.34.1",
 		"prismjs": "^1.29.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

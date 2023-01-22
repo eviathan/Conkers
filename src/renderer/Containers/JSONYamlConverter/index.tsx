@@ -9,6 +9,7 @@ import HeaderedSection from 'renderer/Components/HeaderedSection';
 import { useApi } from '../../../Contexts/ApiContext';
 import JSONYamlSettings, { ISettings } from './JSONYamlSettings';
 import './style.scss';
+import Editor from '@monaco-editor/react';
 
 // TODO: Add clipboard features and file loading
 // see: https://www.electronjs.org/docs/latest/tutorial/ipc
@@ -47,6 +48,32 @@ export default function JWTEncoder() {
 				return yaml;
 			case 'YamlToJSON':
 				return json;
+		}
+	};
+
+	const clearInput = () => {
+		setInput('');
+		setJSON('');
+		setYaml('');
+	};
+
+	const getInputLanguage = (): string => {
+		switch (settings.conversion) {
+			default:
+			case 'JSONToYaml':
+				return 'JSON';
+			case 'YamlToJSON':
+				return 'Yaml';
+		}
+	};
+
+	const getOutputLanguage = (): string => {
+		switch (settings.conversion) {
+			default:
+			case 'JSONToYaml':
+				return 'Yaml';
+			case 'YamlToJSON':
+				return 'JSON';
 		}
 	};
 
@@ -108,14 +135,24 @@ export default function JWTEncoder() {
 
 						{
 							icon: IoCloseSharp,
-							action: () => setInput(''),
+							action: () => clearInput(),
 						},
 					]}
 				>
-					<TextArea
+					<Editor
+						height="300px"
+						language={getInputLanguage()}
+						theme="vs-dark"
+						options={{
+							wordWrap: 'on',
+							wordWrapColumn: 80,
+						}}
+						onChange={(e: any) => setInput(e)}
+					/>
+					{/* <TextArea
 						height="500px"
 						onChange={(text: string) => setInput(text)}
-					/>
+					/> */}
 				</HeaderedSection>
 				<HeaderedSection
 					title="Output"
@@ -127,7 +164,17 @@ export default function JWTEncoder() {
 						},
 					]}
 				>
-					<TextArea text={getOutput()} height="500px" disabled />
+					<Editor
+						height="300px"
+						language={getOutputLanguage()}
+						theme="vs-dark"
+						options={{
+							wordWrap: 'on',
+							wordWrapColumn: 80,
+						}}
+						value={getOutput()}
+					/>
+					{/* <TextArea text={getOutput()} height="500px" disabled /> */}
 				</HeaderedSection>
 			</div>
 		</div>
