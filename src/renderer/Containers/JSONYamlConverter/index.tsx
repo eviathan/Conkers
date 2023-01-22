@@ -171,6 +171,7 @@ export default function JWTEncoder() {
 						options={{
 							wordWrap: 'on',
 							wordWrapColumn: 80,
+							readOnly: true,
 						}}
 						value={getOutput()}
 					/>
