@@ -6,6 +6,8 @@
 
 	.header {
 		display: flex;
+		align-items: center;
+		margin-bottom: 12px;
 		justify-content: space-between;
 
 		h4 {
@@ -20,7 +22,7 @@
 			button {
 				color: white;
 				font-size: 14px;
-				border-radius: 2px 2px 0 0;
+				border-radius: 2px;
 
 				&:not(:last-of-type) {
 					margin-right: 8px;
