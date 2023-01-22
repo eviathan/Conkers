@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import HeaderedSection from 'renderer/Components/HeaderedSection';
-import TextArea from 'renderer/Components/TextArea/TextArea';
+import TextArea from 'renderer/Components/TextArea';
 import EncodingSettings from './EncodingSettings';
 import TokenValidationSettings from './TokenValidationSettings';
 import { useApi } from '../../../Contexts/ApiContext';

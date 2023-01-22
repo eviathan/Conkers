@@ -25,6 +25,13 @@ a {
 	color: white;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
 button {
 	background-color: white;
 	padding: 10px 20px;

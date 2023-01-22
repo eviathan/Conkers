@@ -3,6 +3,7 @@ import { IoBulbSharp, IoFingerPrint } from 'react-icons/io5';
 import { TbArrowsLeftRight } from 'react-icons/tb';
 import Accordion from 'renderer/Components/Accordion';
 import ConfigurationItem from 'renderer/Components/ConfigurationItem';
+import SwitchConfigurationItem from 'renderer/Components/ConfigurationItem/SwitchConfigurationItem';
 import Toggle from 'renderer/Components/Toggle';
 import './style.scss';
 
@@ -39,41 +40,41 @@ export default ({ onUpdate }: IProps) => {
 
 			{settings.isEncoding ? (
 				<Accordion>
-					<ConfigurationItem
+					<SwitchConfigurationItem
 						icon={IoFingerPrint}
 						title="Token hashing algorithm"
 					/>
-					<ConfigurationItem
+					<SwitchConfigurationItem
 						icon={IoBulbSharp}
 						title="Token has issuer"
 						label={(state) => (state ? 'On' : 'Off')}
-						onClick={(state) => {
-							didUpdate({ ...settings, isEncoding: state });
-						}}
+						// onClick={(state) => {
+						// 	didUpdate({ ...settings, isEncoding: state });
+						// }}
 					/>
-					<ConfigurationItem
+					<SwitchConfigurationItem
 						icon={IoBulbSharp}
 						title="Token has audience"
 						label={(state) => (state ? 'On' : 'Off')}
-						onClick={(state) => {
-							didUpdate({ ...settings, isEncoding: state });
-						}}
+						// onClick={(state) => {
+						// 	didUpdate({ ...settings, isEncoding: state });
+						// }}
 					/>
-					<ConfigurationItem
+					<SwitchConfigurationItem
 						icon={IoBulbSharp}
 						title="Token has expirations"
 						label={(state) => (state ? 'On' : 'Off')}
-						onClick={(state) => {
-							didUpdate({ ...settings, isEncoding: state });
-						}}
+						// onClick={(state) => {
+						// 	didUpdate({ ...settings, isEncoding: state });
+						// }}
 					/>
-					<Toggle
+					<SwitchConfigurationItem
 						icon={TbArrowsLeftRight}
 						title="Token has default time"
 						label={(state) => (state ? 'On' : 'Off')}
-						onClick={(state) => {
-							didUpdate({ ...settings, tokenHasDefaultTime: state });
-						}}
+						// onClick={(state) => {
+						// 	didUpdate({ ...settings, tokenHasDefaultTime: state });
+						// }}
 					/>
 				</Accordion>
 			) : null}

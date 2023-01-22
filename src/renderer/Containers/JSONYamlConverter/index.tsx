@@ -1,32 +1,35 @@
 import { useState } from 'react';
 import HeaderedSection from 'renderer/Components/HeaderedSection';
+import TextArea from 'renderer/Components/TextArea';
 import { useApi } from '../../../Contexts/ApiContext';
+import JSONYamlSettings, { ISettings } from './JSONYamlSettings';
 import './style.scss';
 
 export default function JWTEncoder() {
 	const api = useApi();
+	const [json, setJSON] = useState('');
+	const [yaml, setYaml] = useState('');
 
 	api.jwtEncoderApi.encode('');
 	api.jwtEncoderApi.decode('');
 
+	const didSettingsUpdate = (settings: ISettings) => {
+		console.log('Settings: ', settings);
+	};
+
 	return (
-		<div className="json-yaml-comnverter">
+		<div className="json-yaml-converter">
 			<HeaderedSection title="Configuration">
-				{/* <EncodingSettings
-					onUpdate={(settings) => setEncodingSettings(settings)}
-				/> */}
-				{/* {encodingSettings.isEncoding ? null : (
-					<TokenValidationSettings
-						onUpdate={(settings) => setTokenValidationSettings(settings)}
-					/>
-				)} */}
+				<JSONYamlSettings
+					onUpdate={(settings: ISettings) => didSettingsUpdate(settings)}
+				/>
 			</HeaderedSection>
-			<div>
+			<div className="form">
 				<HeaderedSection title="Input">
-					<h5>TODO: Text area goes here</h5>
+					<TextArea />
 				</HeaderedSection>
 				<HeaderedSection title="Output">
-					<h5>TODO: Text area goes here</h5>
+					<TextArea />
 				</HeaderedSection>
 			</div>
 		</div>
