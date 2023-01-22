@@ -85,11 +85,12 @@ export default function JWTEncoder() {
 				<HeaderedSection title="Input">
 					<TextArea
 						text={getInput()}
+						height="500px"
 						onChange={(text: string) => setInput(text)}
 					/>
 				</HeaderedSection>
 				<HeaderedSection title="Output">
-					<TextArea text={getOutput()} disabled />
+					<TextArea text={getOutput()} height="500px" disabled />
 				</HeaderedSection>
 			</div>
 		</div>
