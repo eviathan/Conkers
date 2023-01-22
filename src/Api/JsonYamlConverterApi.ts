@@ -13,18 +13,28 @@ export default class JwtEncoderApi {
 		conversion: ConversionType = 'JSONToYaml',
 		indentation: IndentationType = 'TwoSpaces'
 	): string => {
-		console.log('JSON <> YAML Converter: Not implemented');
+		const indent: number = this.getIndentAmount(indentation);
 
 		try {
 			switch (conversion) {
 				default:
 				case 'JSONToYaml':
-					return yamlHelper.convertFromJSON(value);
+					return yamlHelper.convertFromJSON(value, indent);
 				case 'YamlToJSON':
-					return jsonHelper.convertFromYaml(value);
+					return jsonHelper.convertFromYaml(value, indent);
 			}
 		} catch (error: any) {
 			return error.message;
+		}
+	};
+
+	public getIndentAmount = (indentation: IndentationType): number => {
+		switch (indentation) {
+			default:
+			case 'TwoSpaces':
+				return 2;
+			case 'FourSpaces':
+				return 4;
 		}
 	};
 }

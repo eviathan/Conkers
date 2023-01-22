@@ -16,12 +16,14 @@ export default class YamlHelper {
 		return false;
 	};
 
-	public convertFromJSON = (input: string): string => {
+	public convertFromJSON = (input: string, indent = 2): string => {
 		// TODO: Validate json
 		// TODO: Deserialise json
 		const jsonObject = JSON.parse(input);
 
 		// TODO: Serialise YAML
-		return stringify(jsonObject);
+		return stringify(jsonObject, {
+			indent,
+		});
 	};
 }
