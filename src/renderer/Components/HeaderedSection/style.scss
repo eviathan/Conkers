@@ -1,9 +1,31 @@
+@import '../../Variables.scss';
+
 .headered-section {
 	margin-bottom: 24px;
 	width: 100%;
 
-	h4 {
-		font-size: 12px;
-		margin: 0 0 6px 0;
+	.header {
+		display: flex;
+		justify-content: space-between;
+
+		h4 {
+			font-size: 12px;
+			margin: 0 0 6px 0;
+			color: $text;
+		}
+
+		.items {
+			display: flex;
+
+			button {
+				color: white;
+				font-size: 14px;
+				border-radius: 2px 2px 0 0;
+
+				&:not(:last-of-type) {
+					margin-right: 8px;
+				}
+			}
+		}
 	}
 }

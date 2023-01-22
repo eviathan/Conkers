@@ -17,11 +17,8 @@ export default class YamlHelper {
 	};
 
 	public convertFromJSON = (input: string, indent = 2): string => {
-		// TODO: Validate json
-		// TODO: Deserialise json
 		const jsonObject = JSON.parse(input);
 
-		// TODO: Serialise YAML
 		return stringify(jsonObject, {
 			indent,
 		});

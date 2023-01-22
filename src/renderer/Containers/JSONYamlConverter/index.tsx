@@ -1,10 +1,21 @@
 import { useEffect, useState } from 'react';
-import HeaderedSection from 'renderer/Components/HeaderedSection';
-import TextArea from 'renderer/Components/TextArea';
 import { useDebounce } from 'usehooks-ts';
+import { BiFileBlank } from 'react-icons/bi';
+import { FaRegCopy } from 'react-icons/fa';
+import { IoCloseSharp } from 'react-icons/io5';
+import { MdContentPaste } from 'react-icons/md';
+import TextArea from 'renderer/Components/TextArea';
+import HeaderedSection from 'renderer/Components/HeaderedSection';
 import { useApi } from '../../../Contexts/ApiContext';
 import JSONYamlSettings, { ISettings } from './JSONYamlSettings';
 import './style.scss';
+
+// TODO: Add clipboard features and file loading
+// see: https://www.electronjs.org/docs/latest/tutorial/ipc
+// see: https://stackoverflow.com/questions/31130150/in-electron-framework-can-i-access-clipboard
+// const { clipboard } = require('electron');
+//setInput(clipboard.readText('clipboard')),
+//clipboard.writeText(getOutput(), 'clipboard'),
 
 export default function JWTEncoder() {
 	const api = useApi();
@@ -39,17 +50,17 @@ export default function JWTEncoder() {
 		}
 	};
 
-	useEffect(() => {
-		switch (settings.conversion) {
-			default:
-			case 'JSONToYaml':
-				setJSON(input);
-				break;
-			case 'YamlToJSON':
-				setYaml(input);
-				break;
-		}
-	}, [input, settings.conversion, settings.indent]);
+	// useEffect(() => {
+	// 	switch (settings.conversion) {
+	// 		default:
+	// 		case 'JSONToYaml':
+	// 			setJSON(input);
+	// 			break;
+	// 		case 'YamlToJSON':
+	// 			setYaml(input);
+	// 			break;
+	// 	}
+	// }, [input, settings.conversion, settings.indent]);
 
 	useEffect(() => {
 		const output = api.jsonYamlConverterApi.convert(
@@ -82,14 +93,40 @@ export default function JWTEncoder() {
 				/>
 			</HeaderedSection>
 			<div className="form">
-				<HeaderedSection title="Input">
+				<HeaderedSection
+					title="Input"
+					items={[
+						{
+							label: 'Paste',
+							icon: MdContentPaste,
+							action: () => console.log('wooter'),
+						},
+						{
+							icon: BiFileBlank,
+							action: () => console.log('wooter'),
+						},
+
+						{
+							icon: IoCloseSharp,
+							action: () => setInput(''),
+						},
+					]}
+				>
 					<TextArea
-						text={getInput()}
 						height="500px"
 						onChange={(text: string) => setInput(text)}
 					/>
 				</HeaderedSection>
-				<HeaderedSection title="Output">
+				<HeaderedSection
+					title="Output"
+					items={[
+						{
+							label: 'Copy',
+							icon: FaRegCopy,
+							action: () => console.log('wooter'),
+						},
+					]}
+				>
 					<TextArea text={getOutput()} height="500px" disabled />
 				</HeaderedSection>
 			</div>

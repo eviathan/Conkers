@@ -13,6 +13,8 @@ export default class JwtEncoderApi {
 		conversion: ConversionType = 'JSONToYaml',
 		indentation: IndentationType = 'TwoSpaces'
 	): string => {
+		if (value === '') return value;
+
 		const indent: number = this.getIndentAmount(indentation);
 
 		try {
